@@ -1,0 +1,13 @@
+stack_number = { ASCII_DIGIT+ }
+amount = { ASCII_DIGIT+ }
+move_instruct = { "move " ~ amount ~ " from " ~ stack_number ~ " to " ~ stack_number ~ "\n"}
+instructions = { move_instruct+ }
+
+cratename = { ASCII_ALPHA_UPPER }
+crate_ = { "[" ~ cratename ~ "]" }
+empty = { "   " }
+stackline = { ((crate_ | empty) ~ " "?)+ ~ "\n" }
+stacks = { stackline+ }
+
+numbers = _{ " " ~ (ASCII_DIGIT ~ " "*)+ ~ "\n" }
+input = { stacks ~ numbers ~ "\n" ~ instructions }

@@ -1,0 +1,39 @@
+[package]
+name = "parsers"
+version = "0.1.0"
+edition = "2021"
+
+# See more keys and their definitions at https://doc.rust-lang.org/cargo/reference/manifest.html
+
+[dependencies]
+pest = "2.7.5"
+pest_derive = "2.7.5"
+nom = "7.1.3"
+
+[dev-dependencies]
+criterion = {version="0.3", features=["html_reports"]}
+
+[lib]
+name = "parsers"
+path = "src/lib.rs"
+
+[[bench]]
+name = "benchmark"
+harness = false
+
+[[bench]]
+name =  "vanilla"
+harness = false
+
+[[bin]]
+name = "pest"
+path = "src/bin/pest.rs"
+
+[[bin]]
+name = "nom"
+path = "src/bin/nom.rs"
+
+[[bin]]
+name = "vanilla"
+path = "src/bin/vanilla.rs"
+
